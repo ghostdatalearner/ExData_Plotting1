@@ -35,9 +35,13 @@ for (j in uniq_days)
   position_labels <- append(position_labels,which(label_days == j)[1])
 }
 # We open the graphic device with the required size 480 x 480
-#png(file = "Plot3.png", width = 480, height = 480, bg = "transparent")
+png(file = "Plot3.png", width = 480, height = 480, bg = "transparent")
 plot.new()
-mp <- plot(raw_data$Sub_metering_1~x,cex=0.0,ylab="Global Active Power (kilowatts)",xlab="",xaxt="n")  
-lines(raw_data$Sub_metering_1~x)
+mp <- plot(raw_data$Sub_metering_1~x,col='black',cex=0.0,ylab="Energy sub metering",xlab="",xaxt="n")  
+lines(raw_data$Sub_metering_1~x,col='black')
+lines(raw_data$Sub_metering_2~x,col='red')
+lines(raw_data$Sub_metering_3~x,col='blue')
+legend("topright", c('Sub_metering_1','Sub_metering_2','Sub_metering_3'), cex=0.8, col=c('black','red','blue'), lwd=2, bty="y")
+
 axis(1, at=position_labels, labels=uniq_labels)
-#dev.off()
+dev.off()
