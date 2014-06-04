@@ -39,7 +39,7 @@ for (j in uniq_days)
 # We open the graphic device with the required size 480 x 480
 png(file = "Plot3.png", width = 480, height = 480, bg = "transparent")
 plot.new()
-mp <- plot(raw_data$Sub_metering_1~x,col='black',cex=0.0,ylab="Energy sub metering",xlab="",xaxt="n")  
+mp <- plot(raw_data$Sub_metering_1~x,col='black',type="n",ylab="Energy sub metering",xlab="",xaxt="n")  
 lines(raw_data$Sub_metering_1~x,col='black')
 lines(raw_data$Sub_metering_2~x,col='red')
 lines(raw_data$Sub_metering_3~x,col='blue')

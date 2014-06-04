@@ -46,22 +46,22 @@ for (j in uniq_days)
 png(file = "Plot4.png", width = 480, height = 480, bg = "transparent")
 par(mfrow=c(2,2))
 
-mp1 <- plot(raw_data$Global_active_power~x,cex=0.0,xlab="",ylab="Global Active Power",xaxt="n")  
+mp1 <- plot(raw_data$Global_active_power~x,type="n",xlab="",ylab="Global Active Power",xaxt="n")  
 lines(raw_data$Global_active_power~x)
 axis(1, at=position_labels, labels=uniq_labels)
 
-mp2 <- plot(raw_data$Voltage~x,cex=0.0,xlab="datetime",ylab="Voltage",xaxt="n")  
+mp2 <- plot(raw_data$Voltage~x,type="n",xlab="datetime",ylab="Voltage",xaxt="n")  
 lines(raw_data$Voltage~x)
 axis(1, at=position_labels, labels=uniq_labels)
 
-mp3 <- plot(raw_data$Sub_metering_1~x,col='black',cex=0.0,ylab="Energy sub metering",xlab="",xaxt="n")  
+mp3 <- plot(raw_data$Sub_metering_1~x,col='black',type="n",ylab="Energy sub metering",xlab="",xaxt="n")  
 lines(raw_data$Sub_metering_1~x,col='black')
 lines(raw_data$Sub_metering_2~x,col='red')
 lines(raw_data$Sub_metering_3~x,col='blue')
 legend("topright", c('Sub_metering_1','Sub_metering_2','Sub_metering_3'), col=c('black','red','blue'), lw=2, bty="n")
 axis(1, at=position_labels, labels=uniq_labels)
 
-with (raw_data, mp4 <- plot(Global_reactive_power~x,cex=0.0,xlab="datetime",xaxt="n")  )
+with (raw_data, mp4 <- plot(Global_reactive_power~x,type="n",xlab="datetime",xaxt="n")  )
 lines(raw_data$Global_reactive_power~x)
 axis(1, at=position_labels, labels=uniq_labels)
 

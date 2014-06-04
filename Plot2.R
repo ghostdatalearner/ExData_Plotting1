@@ -38,7 +38,7 @@ for (j in uniq_days)
 }
 # We open the graphic device with the required size 480 x 480
 png(file = "Plot2.png", width = 480, height = 480, bg = "transparent")
-mp <- plot(raw_data$Global_active_power~x,cex=0.0,ylab="Global Active Power (kilowatts)",xlab="",xaxt="n")  
+mp <- plot(raw_data$Global_active_power~x,type="n",ylab="Global Active Power (kilowatts)",xlab="",xaxt="n")  
 lines(raw_data$Global_active_power~x)
 axis(1, at=position_labels, labels=uniq_labels)
 dev.off()
