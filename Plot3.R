@@ -9,6 +9,8 @@
 # This script filters the raw data with the function read_only useful lines
 # defined in the file of the same name
 # 
+# File household_power_consumption.txt should be installed in the working directory
+#
 # data from 1/Feb/2007 to 2/Feb/2007
 
 source("read_only_useful_lines.r")

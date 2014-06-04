@@ -12,6 +12,8 @@
 # IMPORTANT NOTICE FOR REVIEWERS. This script includes all the code for the generation of the 4 pictures
 # It is not a good sw practice repeating the code for plots 2 and 3 but I consider this will make easier
 # the review.
+#
+# File household_power_consumption.txt should be installed in the working directory
 # 
 # data from 1/Feb/2007 to 2/Feb/2007
 
