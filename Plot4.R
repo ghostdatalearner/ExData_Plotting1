@@ -61,7 +61,7 @@ lines(raw_data$Sub_metering_3~x,col='blue')
 legend("topright", c('Sub_metering_1','Sub_metering_2','Sub_metering_3'), col=c('black','red','blue'), lw=2, bty="n")
 axis(1, at=position_labels, labels=uniq_labels)
 
-mp4 <- plot(raw_data$Global_reactive_power~x,cex=0.0,xlab="datetime",xaxt="n")  
+with (raw_data, mp4 <- plot(Global_reactive_power~x,cex=0.0,xlab="datetime",xaxt="n")  )
 lines(raw_data$Global_reactive_power~x)
 axis(1, at=position_labels, labels=uniq_labels)
 
