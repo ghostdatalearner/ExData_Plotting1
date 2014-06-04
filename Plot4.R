@@ -4,10 +4,14 @@
 #
 # Project 1
 #
-# Plot3.R
+# Plot4.R 
 #
 # This script filters the raw data with the function read_only useful lines
 # defined in the file of the same name
+#
+# IMPORTANT NOTICE FOR REVIEWERS. This script includes all the code for the generation of the 4 pictures
+# It is not a good sw practice repeating the code for plots 2 and 3 but I consider this will make easier
+# the review.
 # 
 # data from 1/Feb/2007 to 2/Feb/2007
 
@@ -34,14 +38,29 @@ for (j in uniq_days)
 {
   position_labels <- append(position_labels,which(label_days == j)[1])
 }
+
 # We open the graphic device with the required size 480 x 480
-png(file = "Plot3.png", width = 480, height = 480, bg = "transparent")
-plot.new()
-mp <- plot(raw_data$Sub_metering_1~x,col='black',cex=0.0,ylab="Energy sub metering",xlab="",xaxt="n")  
+
+png(file = "Plot4.png", width = 480, height = 480, bg = "transparent")
+par(mfrow=c(2,2))
+
+mp1 <- plot(raw_data$Global_active_power~x,cex=0.0,xlab="",ylab="Global Active Power",xaxt="n")  
+lines(raw_data$Global_active_power~x)
+axis(1, at=position_labels, labels=uniq_labels)
+
+mp2 <- plot(raw_data$Voltage~x,cex=0.0,xlab="datetime",ylab="Voltage",xaxt="n")  
+lines(raw_data$Voltage~x)
+axis(1, at=position_labels, labels=uniq_labels)
+
+mp3 <- plot(raw_data$Sub_metering_1~x,col='black',cex=0.0,ylab="Energy sub metering",xlab="",xaxt="n")  
 lines(raw_data$Sub_metering_1~x,col='black')
 lines(raw_data$Sub_metering_2~x,col='red')
 lines(raw_data$Sub_metering_3~x,col='blue')
-legend("topright", c('Sub_metering_1','Sub_metering_2','Sub_metering_3'), col=c('black','red','blue'), lw=2, bty="y")
-
+legend("topright", c('Sub_metering_1','Sub_metering_2','Sub_metering_3'), col=c('black','red','blue'), lw=2, bty="n")
 axis(1, at=position_labels, labels=uniq_labels)
+
+mp4 <- plot(raw_data$Global_reactive_power~x,cex=0.0,xlab="datetime",xaxt="n")  
+lines(raw_data$Global_reactive_power~x)
+axis(1, at=position_labels, labels=uniq_labels)
+
 dev.off()
